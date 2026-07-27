@@ -19,3 +19,4 @@ env/
 *.pages
 *.numbers
 *.key
+models/
