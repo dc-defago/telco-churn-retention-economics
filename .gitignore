@@ -19,7 +19,3 @@ env/
 *.pages
 *.numbers
 *.key
-Projet churn client.pages
-
-# Données volumineuses (à décommenter si tu ne veux pas versionner le CSV)
-# data/*.csv
