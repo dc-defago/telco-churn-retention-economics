@@ -1,0 +1,4 @@
+scenario,c_offer,p_save,margin,horizon_m,v_sub_mean,optimal_threshold,formula_threshold,n_targeted,net_value_CHF
+Conservative,60,0.2,0.55,54.2,1910.0,0.11,0.157,796,103768.0
+Central,40,0.27,0.6,54.2,2084.0,0.07,0.071,990,194794.0
+Optimistic,25,0.35,0.7,54.2,2431.0,0.06,0.029,1088,331611.0

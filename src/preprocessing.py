@@ -4,7 +4,7 @@ def preprocess_features(df: pd.DataFrame, expected_columns=None) -> pd.DataFrame
     df = df.copy()
 
     # Basic cleaning and preprocessing
-    df = df.drop(columns=["customerID"], errors="ignore", axis=1)
+    df = df.drop(columns=["customerID"], errors="ignore")
 
     df.columns = [col[0].upper() + col[1:]
                   if isinstance(col, str) and col 
