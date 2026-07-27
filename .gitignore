@@ -5,3 +5,5 @@ models/
 .env
 .ipynb_checkpoints/
 .vscode/
+*.pages
+Projet churn client.pages
