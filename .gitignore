@@ -1,9 +1,25 @@
-.DS_Store
+# Python
 __pycache__/
 *.pyc
-models/
-.env
+*.pyo
+.pytest_cache/
 .ipynb_checkpoints/
+
+# Environnements
+.venv/
+venv/
+env/
+
+# Éditeurs / OS
 .vscode/
+.idea/
+.DS_Store
+
+# Documents de travail (non destinés à la publication)
 *.pages
+*.numbers
+*.key
 Projet churn client.pages
+
+# Données volumineuses (à décommenter si tu ne veux pas versionner le CSV)
+# data/*.csv
