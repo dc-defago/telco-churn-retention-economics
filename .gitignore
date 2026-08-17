@@ -20,3 +20,5 @@ env/
 *.numbers
 *.key
 models/
+predictions_*.csv
+new_subscribers.csv

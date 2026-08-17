@@ -12,7 +12,14 @@ from sklearn.metrics import roc_auc_score
 
 from src.preprocessing import preprocess_features
 
-from src.business_value import select_operating_threshold, sensitivity_analysis, build_telecom_scenarios, horizon_sensitivity
+from src.business_value import (
+    select_operating_threshold,
+    sensitivity_analysis,
+    build_telecom_scenarios,
+    horizon_sensitivity,
+    compute_customer_value,
+    optimal_threshold,   
+)
 
 
 def train():
@@ -135,16 +142,24 @@ def train():
     os.makedirs(models_dir, exist_ok = True)
 
     central = [s for s in scenarios if s.name == "Central"][0]
+    thresholds_by_band = {}
+    for s in scenarios:
+        v_sub = compute_customer_value(mc_test, s.margin, s.horizon_months).to_numpy()
+        t_star, _ = optimal_threshold(y_proba, y_test, v_sub, s.c_offer, s.p_save)
+        thresholds_by_band[s.name] = {
+            "threshold": float(t_star),
+            "assumptions": {
+                "c_offer_CHF": s.c_offer,
+                "p_save": s.p_save,
+                "margin": s.margin,
+                "horizon_months": round(s.horizon_months, 2),
+            },
+        }
     threshold_artifact = {
-        "threshold": float(threshold),
-        "band": "Central",
-        "assumptions": {
-            "c_offer_CHF": central.c_offer,
-            "p_save": central.p_save,
-            "margin": central.margin,
-            "horizon_months": round(central.horizon_months, 2),
-        },
+    "default_band": "Central",
+    "bands": thresholds_by_band,
     }
+
     hz = horizon_sensitivity(y_proba, y_test, mc_test, central)
     print("\n=== Horizon sensitivity (Central scenario, one-way) ===")
     print(hz.to_string(index=False))
