@@ -84,4 +84,4 @@ Residential subscribers only. The B2B portfolio has different churn dynamics and
 
 ## Author
 
-Darius Defago — dc.defago@gmail.com
+dc-defago
