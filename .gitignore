@@ -16,9 +16,10 @@ env/
 .DS_Store
 
 # Documents de travail (non destinés à la publication)
+data/*.csv
+!data/new_subscribers.csv
 *.pages
 *.numbers
 *.key
 models/
 predictions_*.csv
-new_subscribers.csv
